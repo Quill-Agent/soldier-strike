@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-# Downloads the binary game assets (pixel-art textures, SFX, music, three.js)
-# and unpacks them into public/ — run once after cloning.
+# Downloads the COMPLETE Soldier Strike game (all source code + binary assets)
+# and unpacks it into this folder. Run once after cloning.
 set -e
 cd "$(dirname "$0")"
-curl -L -o /tmp/soldier-strike-assets.zip "https://d2ol7oe51mr4n9.cloudfront.net/user_3GEeqy4X8bGhvossH45YMdlgtZe/864d4e24-0fb9-4b66-83d7-b24fc2bc9ad4.zip"
-unzip -o /tmp/soldier-strike-assets.zip -d public/
-rm /tmp/soldier-strike-assets.zip
-echo "Assets installed. Run: cd public && python3 -m http.server 8080"
+curl -L -o /tmp/soldier-strike-full.zip "https://d2ol7oe51mr4n9.cloudfront.net/user_3GEeqy4X8bGhvossH45YMdlgtZe/9d3e8549-9878-4de7-a278-e7fa7c2e1669.zip"
+unzip -o /tmp/soldier-strike-full.zip -d .
+rm /tmp/soldier-strike-full.zip
+echo "Full game unpacked: server.js, public/, tools/, design/"
+echo "Play the client locally: cd public && python3 -m http.server 8080"
+echo "To publish the source into this git repo: git add -A && git commit -m 'full source' && git push"
